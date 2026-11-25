@@ -1,0 +1,47 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Guia An Introduction to Optimization Techniques</title><style>
+@page{size:A4;margin:16mm 15mm 18mm 15mm}html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:"Segoe UI",Calibri,Arial,sans-serif;color:#1f2933;font-size:11pt;line-height:1.55;margin:0}
+.pg{break-after:page}.capa{height:250mm;display:flex;flex-direction:column;justify-content:center;
+background:linear-gradient(160deg,#2f2a6b,#2f7d6d);color:#fff;border-radius:10px;padding:0 16mm}
+.capa .tag{letter-spacing:.2em;text-transform:uppercase;font-size:10pt;opacity:.85}
+.capa h1{font-size:30pt;margin:4mm 0 2mm;line-height:1.15}.capa h2{font-weight:400;font-size:15pt;color:#fff;border:0;margin:0 0 10mm}
+.capa .lema{font-size:13pt;border-left:4px solid #9fe0c9;padding-left:5mm;max-width:145mm}
+h2{color:#2f2a6b;font-size:18pt;margin:0 0 4mm;padding-bottom:2mm;border-bottom:2px solid #e6eef6}
+h3{color:#2f2a6b;font-size:13pt;margin:6mm 0 2mm}code{font-family:Consolas,monospace;font-size:9.3pt;background:#f2f5f8;padding:0 4px;border-radius:3px}
+kbd{border:1px solid #c9d2db;border-bottom-width:2px;border-radius:4px;padding:0 5px;font-size:9.5pt}
+.passo{display:flex;gap:4mm;margin:0 0 3.5mm;break-inside:avoid}.n{flex:0 0 9mm;height:9mm;border-radius:50%;background:#2f2a6b;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.box{border-radius:7px;padding:3mm 5mm;margin:3mm 0;break-inside:avoid}.dica{background:#e8f5ee;border-left:4px solid #2e7d5b}.aviso{background:#fff5df;border-left:4px solid #a86b00}
+table{border-collapse:collapse;width:100%;font-size:9.8pt;margin:2mm 0}th{background:#2f2a6b;color:#fff;text-align:left;padding:2mm}
+td{padding:1.6mm 2mm;border-bottom:1px solid #e3e8ee;vertical-align:top}tr:nth-child(even) td{background:#f7f9fb}.p{color:#5b6b7a;font-size:9pt}
+.linha{display:flex;gap:3mm;margin:2mm 0}.min{flex:0 0 22mm;font-weight:700;color:#2f7d6d}
+</style></head><body>
+<section class="pg capa"><div class="tag">Guia de estudos · trilha prática</div>
+<h1>An Introduction to Optimization Techniques</h1><h2>Vikrant Sharma e coautores (edição em inglês) — pesquisa operacional na prática, em Python</h2>
+<p class="lema">Menos leitura, mais construção: cada capítulo é uma decisão real da Móveis Boreal. Você escreve o simplex, o Vogel, o CPM, o Dijkstra, a regra de Johnson, o branch and bound e o AHP, confere com o SciPy e entrega o plano final numa planilha Excel.</p></section>
+
+<section class="pg"><h2>1. Como a trilha funciona</h2>
+<div class="passo"><div class="n">1</div><div><b>Missão</b>: o topo de cada caderno diz o que você vai construir e por quê.</div></div>
+<div class="passo"><div class="n">2</div><div><b>Leitura essencial (opcional)</b>: só as seções que importam, com a página do PDF em inglês. Leia quando um passo gerar dúvida, não antes.</div></div>
+<div class="passo"><div class="n">3</div><div><b>Passos</b>: uma explicação curta e uma célula vazia. Digite, rode com <kbd>Shift</kbd>+<kbd>Enter</kbd> e veja o resultado.</div></div>
+<div class="passo"><div class="n">4</div><div><b>Módulos do projeto</b>: os passos com <code>%%writefile</code> gravam arquivos em <code>meu_otimizador/</code>. Os capítulos seguintes importam esses arquivos, então faça na ordem.</div></div>
+<div class="passo"><div class="n">5</div><div><b>Gabarito</b> em <code>resolvidos/</code>, com o mesmo passo pronto. Travou por mais de 10 minutos? Olhe, entenda e digite de novo sem copiar.</div></div>
+<h3>Do papel para o código</h3><p>O livro resolve tudo à mão e, no último capítulo, no Excel. Aqui cada método é escrito em Python, com dados pequenos (em <code>comum/dados.py</code>) para você conferir as contas como no livro, e depois validado com o SciPy (<code>linprog</code>, <code>milp</code>, <code>linear_sum_assignment</code>) e o networkx. No fim, o cap. 11 junta tudo e exporta o plano para Excel.</p><div class='box aviso'>Os capítulos são quase independentes. O 11 usa o <code>filas.py</code> do capítulo 8.</div>
+<h3>Primeira vez</h3>
+<div class="passo"><div class="n">1</div><div>Abra o VS Code pelo atalho <b>Projetos e Estudos</b> e entre na pasta <code>optimization_techniques</code>.</div></div>
+<div class="passo"><div class="n">2</div><div>Abra <code>praticar/cap01_…ipynb</code>, clique em <b>Select Kernel</b> e escolha o <b>.venv</b> desta pasta.</div></div>
+<div class="passo"><div class="n">3</div><div>Rode a Preparação. Deve aparecer <i>Pronto. Python 3.12 | seu pacote: meu_otimizador</i>.</div></div>
+</section>
+
+<section class="pg"><h2>2. Mapa da trilha (61 passos)</h2>
+<table><tr><th>Cap.</th><th>Missão e entrega</th><th>Passos</th><th>Módulos</th></tr><tr><td>1</td><td><b>Otimização: decidir o melhor com restrições</b><br><span class='p'>o módulo <code>meu_otimizador/basico.py</code>, com a busca exaustiva, o ótimo por cálculo de uma função de uma variável e um planejamento fatorial 2³.</span></td><td>5</td><td><code>basico.py</code></td></tr><tr><td>2</td><td><b>Programação linear: o mix de produção</b><br><span class='p'>o módulo <code>meu_otimizador/simplex.py</code>, com o simplex em tabela que mostra cada iteração, e o plano de produção ótimo com a análise de sensibilidade.</span></td><td>6</td><td><code>simplex.py</code></td></tr><tr><td>3</td><td><b>Transporte e designação</b><br><span class='p'>o módulo <code>meu_otimizador/transporte.py</code> (canto noroeste, Vogel, otimalidade u-v e designação por força bruta) e os planos ótimos conferidos com o SciPy.</span></td><td>6</td><td><code>transporte.py</code></td></tr><tr><td>4</td><td><b>Redes: projeto da nova linha, rotas e fluxos</b><br><span class='p'>o módulo <code>meu_otimizador/redes.py</code> (CPM com folgas, PERT, Dijkstra, Prim e fluxo máximo de Edmonds-Karp, escritos à mão) e os números conferidos com o networkx.</span></td><td>6</td><td><code>redes.py</code></td></tr><tr><td>5</td><td><b>Sequenciamento: em que ordem produzir</b><br><span class='p'>o módulo <code>meu_otimizador/sequencia.py</code> (métricas de uma máquina, regra de Johnson, *makespan* em m máquinas e Gantt).</span></td><td>6</td><td><code>sequencia.py</code></td></tr><tr><td>6</td><td><b>Substituição: quando trocar a máquina</b><br><span class='p'>o módulo <code>meu_otimizador/substituicao.py</code> (custo médio anual, custo anual equivalente com juros e a política de troca em grupo) com o ano e o mês ótimos.</span></td><td>5</td><td><code>substituicao.py</code></td></tr><tr><td>7</td><td><b>Teoria dos jogos: a disputa com o concorrente</b><br><span class='p'>o módulo <code>meu_otimizador/jogos.py</code> (ponto de sela, dominância e estratégia mista ótima via programação linear) e o &quot;mix&quot; de estratégias da Boreal.</span></td><td>6</td><td><code>jogos.py</code></td></tr><tr><td>8</td><td><b>Filas: quantas equipes na doca</b><br><span class='p'>o módulo <code>meu_otimizador/filas.py</code> (M/M/1, M/M/c com Erlang C e um simulador de fila) e a decisão de quantas equipes contratar.</span></td><td>5</td><td><code>filas.py</code></td></tr><tr><td>9</td><td><b>Programação dinâmica e inteira</b><br><span class='p'>o módulo <code>meu_otimizador/inteira.py</code> (DP de alocação por estágios, mochila por DP e branch-and-bound 0/1) e o portfólio de projetos ótimo.</span></td><td>5</td><td><code>inteira.py</code></td></tr><tr><td>10</td><td><b>Metas, AHP e decisão sob incerteza</b><br><span class='p'>o módulo <code>meu_otimizador/decisao.py</code> (pesos do AHP com consistência, os critérios de decisão, VME e VEIP) e as três decisões da Boreal justificadas.</span></td><td>6</td><td><code>decisao.py</code></td></tr><tr><td>11</td><td><b>Modelagem aberta: do Python para a planilha</b><br><span class='p'>o módulo <code>meu_otimizador/relatorio.py</code> (<code>PlanoBoreal</code>: mix de produção, frete e escala da doca, com análise de cenários e exportação para <code>saidas/plano_boreal.xlsx</code>).</span></td><td>5</td><td><code>relatorio.py</code></td></tr></table></section>
+
+<section class="pg"><h2>3. Rotina de 60 minutos</h2>
+<div class="linha"><div class="min">0–5 min</div><div>Rode a Preparação e releia o Fechamento da última sessão.</div></div>
+<div class="linha"><div class="min">5–45 min</div><div>Faça 2 a 4 passos. Antes de rodar, escreva numa linha o que você espera que aconteça e compare com o resultado.</div></div>
+<div class="linha"><div class="min">45–55 min</div><div>Mude um parâmetro e veja o efeito no resultado.</div></div>
+<div class="linha"><div class="min">55–60 min</div><div>Preencha o Fechamento e faça commit + Sync no VS Code.</div></div>
+<h3>Para ir além (desafios)</h3>
+<ul><li>No cap. 2, transforme o seu simplex para aceitar restrições ≥ com o método Big M.</li><li>No cap. 3, implemente o passo de melhoria do MODI (o ciclo) e chegue ao ótimo a partir do Vogel.</li><li>No cap. 4, faça o crashing com o <code>linprog</code> em vez do método guloso e compare o custo.</li><li>No cap. 8, simule uma doca com horário de pico (λ variando ao longo do dia) e veja se 2 equipes ainda bastam.</li></ul>
+<div class="box dica">Livro: <code>Downloads/Telegram Desktop/An Introduction to Optimization Techniques.pdf</code>. As páginas indicadas nos cadernos são as do PDF.</div>
+</section>
+</body></html>

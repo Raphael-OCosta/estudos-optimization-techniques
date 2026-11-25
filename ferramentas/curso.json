@@ -1,0 +1,11 @@
+{
+ "pkg_praticar": "meu_otimizador",
+ "pkg_resolvidos": "gabarito_otimizador",
+ "livro": "An Introduction to Optimization Techniques",
+ "subtitulo": "Vikrant Sharma e coautores (edição em inglês) — pesquisa operacional na prática, em Python",
+ "lema": "Menos leitura, mais construção: cada capítulo é uma decisão real da Móveis Boreal. Você escreve o simplex, o Vogel, o CPM, o Dijkstra, a regra de Johnson, o branch and bound e o AHP, confere com o SciPy e entrega o plano final numa planilha Excel.",
+ "pasta": "optimization_techniques",
+ "pdf": "Downloads/Telegram Desktop/An Introduction to Optimization Techniques.pdf",
+ "extra_html": "<h3>Do papel para o código</h3><p>O livro resolve tudo à mão e, no último capítulo, no Excel. Aqui cada método é escrito em Python, com dados pequenos (em <code>comum/dados.py</code>) para você conferir as contas como no livro, e depois validado com o SciPy (<code>linprog</code>, <code>milp</code>, <code>linear_sum_assignment</code>) e o networkx. No fim, o cap. 11 junta tudo e exporta o plano para Excel.</p><div class='box aviso'>Os capítulos são quase independentes. O 11 usa o <code>filas.py</code> do capítulo 8.</div>",
+ "desafios": ["No cap. 2, transforme o seu simplex para aceitar restrições ≥ com o método Big M.", "No cap. 3, implemente o passo de melhoria do MODI (o ciclo) e chegue ao ótimo a partir do Vogel.", "No cap. 4, faça o crashing com o <code>linprog</code> em vez do método guloso e compare o custo.", "No cap. 8, simule uma doca com horário de pico (λ variando ao longo do dia) e veja se 2 equipes ainda bastam."]
+}

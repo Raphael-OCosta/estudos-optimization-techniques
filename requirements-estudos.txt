@@ -1,0 +1,10 @@
+ipykernel
+pip
+numpy
+pandas
+scipy
+matplotlib
+networkx
+openpyxl
+nbclient
+nbformat
